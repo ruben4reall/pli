@@ -2,9 +2,19 @@
 
 Every release of Pli. Versions follow semantic versioning; each one is signed, notarized, and offered to installed copies through Sparkle.
 
+## 1.0.0 (2026-09-27)
+
+Pli 1.0: ready for everyone. The iPhone Duo fold on your MacBook, driven by the real angle of the lid, free and open source.
+
+### New
+
+- **Released for every Mac that runs macOS 26.** On MacBooks whose lid angle sensor Pli can read, the fold follows your lid; on every other Mac, the demo (⌃⌥⌘P), the animated lock (⌃⌥⌘L) and the unfold after you unlock work with their shortcuts. Settings, General, This Mac says which case yours is.
+- **Universal.** One app for Apple silicon and Intel, signed with a Developer ID and notarized by Apple.
+- Everything from the public preview below: the fold, the unfold on wake, seven looks and your own, the dark Settings window with its 3D MacBook, the memory Pli uses shown live, and updates through Sparkle.
+
 ## 0.9.0 (2026-09-27)
 
-The public preview: the iPhone Duo fold on your MacBook, driven by the real angle of the lid. Version 1.0 follows on October 15 and reaches this preview through Sparkle.
+The public preview: the iPhone Duo fold on your MacBook, driven by the real angle of the lid.
 
 ### New
 

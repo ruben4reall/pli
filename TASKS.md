@@ -4,21 +4,24 @@
 
 ## To do
 
+- [ ] 1.0.0 on October 15: raise MARKETING_VERSION, add its CHANGELOG section, run the signed release, then scripts/publish.sh release, tap and site
+- [ ] Watch Sparkle's releases and raise exactVersion in project.yml when one ships
+- [ ] Upload the social preview (docs/brand/social-preview.png) in the repository settings
 - [ ] Owner: run the early hardware checks (R1 to R7) and record the decisions
 - [ ] Owner: run the Plan 2 acceptance checklist on a Release build
 - [ ] Set LockScreenSpace.absoluteLevel from the R3 result (400 by default, 300 in the brief)
 - [ ] Tune Fully Frosted At and Final Blackout from the display-off angle (R2)
 - [ ] Measure the idle CPU of the sensor thread against the 0.3% budget; lower restPollingHz if needed
 - [ ] Early checks on real hardware (sensor, lock screen space, capture latency)
-- [ ] At launch (October 15): revert the site's prelaunch commit (download and GitHub links) and redeploy
 - [ ] Owner: run the Plan 3 acceptance checklist
 - [ ] Owner: decide on Apple imagery (Pro Black wallpaper, system icons in the Dock) on the public site and in the repository before launch
 - [ ] Lower the idle CPU (0.4% of one core measured at rest, budget 0.3%)
-- [ ] Release pipeline: notarized DMG, Sparkle updates
 - [ ] Acceptance testing on a real MacBook
 
 ## Done
 
+- [x] Pli 0.9.0 public preview: notarized release, Sparkle updates, Homebrew tap, website with downloads (2026-09-27)
+- [x] Release pipeline: notarized DMG, Sparkle updates
 - [x] Website live at https://getpli.vercel.app (Vercel project pli, personal scope), page counter wired
 - [x] Settings window, menu bar panel, onboarding (Noir design, 3D MacBook, This Mac and live memory)
 - [x] Brand: icon (first version, pane on its hinge), wordmark, tokens

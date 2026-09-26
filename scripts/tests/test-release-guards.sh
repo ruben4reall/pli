@@ -7,6 +7,7 @@ fresh() {   # a throwaway copy of the working tree, committed, with a release-no
   rm -rf "$TMP/repo" && mkdir "$TMP/repo"
   rsync -a --exclude .git --exclude .build --exclude dist --exclude node_modules "$ROOT/" "$TMP/repo/"
   cd "$TMP/repo"
+  rm -f site/appcast.xml   # the version under test is not released yet, whatever the real appcast already offers
   git init -q && git config user.name Test && git config user.email "tests@localhost"
   VERSION=$(grep -m1 'MARKETING_VERSION:' project.yml | awk '{print $2}' | tr -d '"')
   printf '# Changelog\n\n## %s (2026-10-15)\n\n- Test.\n' "$VERSION" > CHANGELOG.md

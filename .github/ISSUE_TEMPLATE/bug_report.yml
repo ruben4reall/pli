@@ -1,0 +1,58 @@
+name: Bug report
+description: Something does not work the way Pli says it should
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, and what Pli did.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Close the lid halfway
+        2. Open it again
+  - type: input
+    id: mac
+    attributes:
+      label: Mac model
+      placeholder: MacBook Pro 14-inch, M3 Pro, 2023
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "26.5.2"
+    validations:
+      required: true
+  - type: input
+    id: pli
+    attributes:
+      label: Pli version (Settings, About)
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: status
+    attributes:
+      label: The status line of the menu bar panel
+      placeholder: "Active · lid at 104°"
+  - type: textarea
+    id: log
+    attributes:
+      label: Log (optional)
+      description: |
+        Pli logs numbers and states only, never an image. Right after the problem, run this in Terminal and paste the output:
+        /usr/bin/log show --last 5m --info --style compact --predicate 'subsystem == "ch.rubencatalao.pli"'
+      render: text

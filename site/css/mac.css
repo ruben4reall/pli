@@ -1,0 +1,220 @@
+/* The MacBook drawn in the page, in Space Black: CSS 3D planes, a WebGL canvas on the display. No photo, no logo.
+   hero.js drives --lid-angle (degrees between the deck and the lid): 0 closed, 110 open. */
+
+@property --lid-angle {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 110;
+}
+
+.mac {
+  --lid-angle: 110;
+  /* Perspective widens the near edge of the base by about 21%: 0.82 keeps it inside the gutters. */
+  --w: clamp(240px, min((100vw - 2 * var(--gutter)) * 0.82, (100svh - 300px) * 1.08), 900px);
+  --u: calc(var(--w) / 100);
+  --lid-h: calc(var(--u) * 66.8);
+  --base-d: calc(var(--u) * 70);
+  --hinge-y: calc(var(--u) * 76);
+  /* The camera looks down at a closed Mac, then levels out and settles as the lid rises. */
+  --pitch: calc(22 - var(--lid-angle) * 0.11);
+  --lift: max(0, calc((70 - var(--lid-angle)) * 0.34));
+  position: relative;
+  width: var(--w);
+  height: calc(var(--u) * 92);
+  margin: 0 auto;
+  perspective: calc(var(--w) * 4);
+  perspective-origin: 50% calc(var(--hinge-y) - var(--u) * 20);
+}
+
+.mac-model {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: 50% var(--hinge-y) calc(var(--base-d) / 2);
+  transform: translateY(calc(var(--u) * var(--lift) * -1)) rotateX(calc(var(--pitch) * -1deg));
+}
+
+.mac-shadow {
+  position: absolute;
+  left: -8%;
+  width: 116%;
+  top: var(--hinge-y);
+  height: calc(var(--base-d) * 1.12);
+  transform-origin: 50% 0;
+  transform: translateY(calc(var(--u) * 1.8)) rotateX(90deg) translateY(calc(var(--u) * -3));
+  background: radial-gradient(closest-side, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.35) 60%, rgb(0 0 0 / 0));
+}
+
+.mac-base {
+  position: absolute;
+  left: 0;
+  top: var(--hinge-y);
+  width: 100%;
+  height: var(--base-d);
+  transform-origin: 50% 0;
+  transform: rotateX(90deg);
+  border-radius: calc(var(--u) * 1) calc(var(--u) * 1) calc(var(--u) * 3.2) calc(var(--u) * 3.2);
+  /* A soft specular band across the top case, on top of the base metal gradient. */
+  background:
+    linear-gradient(115deg, transparent 38%, rgb(255 255 255 / 0.07) 50%, transparent 64%),
+    linear-gradient(180deg, #34363b 0%, #3d3f44 30%, #33353a 100%);
+  box-shadow: inset 0 0 0 calc(var(--u) * 0.18) rgb(255 255 255 / 0.16), inset 0 calc(var(--u) * 0.35) 0 rgb(255 255 255 / 0.08);
+}
+
+.mac-keyboard {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 7%;
+  height: 43%;
+  border-radius: calc(var(--u) * 0.8);
+  background: url('../assets/keyboard.svg') center / 100% 100% no-repeat;
+  box-shadow: 0 0 0 calc(var(--u) * 0.6) #25272a, 0 0 0 calc(var(--u) * 0.75) rgb(0 0 0 / 0.3);
+}
+
+.mac-trackpad {
+  position: absolute;
+  left: 31%;
+  right: 31%;
+  top: 57%;
+  height: 36%;
+  border-radius: calc(var(--u) * 1.2);
+  background: linear-gradient(180deg, #383a3f, #404247);
+  box-shadow: inset 0 0 0 calc(var(--u) * 0.15) rgb(255 255 255 / 0.06);
+}
+
+.mac-front {
+  position: absolute;
+  left: 0;
+  top: var(--hinge-y);
+  width: 100%;
+  height: calc(var(--u) * 1.6);
+  transform: translateZ(var(--base-d));
+  border-radius: 0 0 calc(var(--u) * 1.4) calc(var(--u) * 1.4);
+  /* Slightly darker than the base: the thin front lip catches less light. */
+  background: linear-gradient(180deg, #4a4c51 0%, #2a2b2f 35%, #17181a 100%);
+}
+
+.mac-lid {
+  position: absolute;
+  left: 0;
+  top: calc(var(--hinge-y) - var(--lid-h) - var(--u) * 0.25);
+  width: 100%;
+  height: var(--lid-h);
+  transform-style: preserve-3d;
+  transform-origin: 50% 100%;
+  transform: rotateX(calc((var(--lid-angle) - 90) * 1deg));
+}
+
+.mac-screen,
+.mac-shell {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--u) * 2.6) calc(var(--u) * 2.6) calc(var(--u) * 1) calc(var(--u) * 1);
+  backface-visibility: hidden;
+}
+
+.mac-screen {
+  background: #0b0c0e;
+  box-shadow: inset 0 0 0 calc(var(--u) * 0.22) #34363a, 0 0 0 calc(var(--u) * 0.12) rgb(255 255 255 / 0.14);
+}
+
+.mac-shell {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, #34363a 0%, #2a2c30 100%);
+  box-shadow: inset 0 0 0 calc(var(--u) * 0.22) rgb(255 255 255 / 0.12);
+}
+
+.mac-edge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(var(--u) * 0.7);
+  transform-origin: 50% 0;
+  transform: translateZ(calc(var(--u) * -0.7)) rotateX(90deg);
+  border-radius: calc(var(--u) * 0.4);
+  background: #3a3c40;
+}
+
+.mac-display {
+  position: absolute;
+  left: calc(var(--u) * 1.8);
+  right: calc(var(--u) * 1.8);
+  top: calc(var(--u) * 1.8);
+  bottom: calc(var(--u) * 2.4);
+  overflow: hidden;
+  border-radius: calc(var(--u) * 1.2);
+  background: var(--pli-night);
+}
+
+.mac-still,
+.mac-glass {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mac-still {
+  object-fit: cover;
+}
+
+.mac-glass {
+  visibility: hidden;
+}
+
+.mac-camera {
+  /* The notch of the 14-inch display: 13% of its width, 32 of its 982 points tall, the camera inside. */
+  position: absolute;
+  top: calc(var(--u) * 1.8);
+  left: 50%;
+  width: calc(var(--u) * 12.5);
+  height: calc(var(--u) * 2.05);
+  margin-left: calc(var(--u) * -6.25);
+  border-radius: 0 0 calc(var(--u) * 0.9) calc(var(--u) * 0.9);
+  background: #000;
+}
+
+.mac-camera::after {
+  content: "";
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: calc(var(--u) * 0.55);
+  height: calc(var(--u) * 0.55);
+  margin-left: calc(var(--u) * -0.275);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #1d2433, #07080a 70%);
+}
+
+/* The page is live (hero.js): the canvas draws the display. */
+.mac[data-lid='live'] .mac-glass {
+  visibility: visible;
+}
+
+.mac[data-lid='live'] .mac-still {
+  visibility: hidden;
+}
+
+/* Before hero.js runs, a Mac that will open starts closed. If the script never takes over, it opens anyway. */
+html[data-motion='full'] .mac:not([data-lid]) {
+  --lid-angle: 0;
+  animation: mac-failsafe 0.9s cubic-bezier(0.33, 1, 0.68, 1) 4s forwards;
+}
+
+@keyframes mac-failsafe {
+  to {
+    --lid-angle: 110;
+  }
+}
+
+.mac[data-lid='still'] {
+  --lid-angle: 110;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mac[data-lid='still'] {
+    transition: --lid-angle 0.9s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+}

@@ -1,0 +1,27 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  engine:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v5
+      - name: Test PliKit
+        run: swift test --package-path Packages/PliKit
+  app:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Build Pli.app (ad hoc signature)
+        run: scripts/build.sh Debug
+  scripts:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Test the release scripts
+        run: scripts/tests/run.sh

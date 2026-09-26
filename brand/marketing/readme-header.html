@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pli · README header</title>
+<!-- Rendered to docs/brand/readme-header.png (light) and, with ?dark, to
+     docs/brand/readme-header-dark.png (1600 x 480) by brand/scripts/export-marketing.sh. -->
+<meta name="viewport" content="width=1600">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="marketing.css">
+<script>
+  // ?dark renders the variant for GitHub's dark theme.
+  if (/[?&]dark\b/.test(location.search)) document.documentElement.dataset.pliTheme = 'dark';
+</script>
+<style>
+  html, body { width: 1600px; height: 480px; background: transparent; }
+
+  /* The header is a pane: a Paper tile (Night in dark) whose top edge
+     catches the iridescent light, like the icon's pane. The corners outside
+     the tile stay transparent, so it sits on GitHub's page in both themes. */
+  .tile {
+    position: absolute; inset: 0;
+    border-radius: var(--pli-radius-xl);
+    background: var(--pli-surface);
+    overflow: hidden;
+  }
+  [data-pli-theme="dark"] .tile { background: var(--pli-background); }
+  .rim {
+    position: absolute; left: 0; right: 0; top: 0; height: 3px;
+    background: var(--pli-iridescent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+  }
+  .glow {
+    position: absolute; left: 10%; right: 10%; top: -120px; height: 240px;
+    background: radial-gradient(closest-side, rgba(200, 184, 255, 0.22), rgba(166, 240, 255, 0.08) 60%, transparent);
+  }
+  [data-pli-theme="dark"] .glow { background: radial-gradient(closest-side, rgba(11, 111, 176, 0.34), rgba(11, 111, 176, 0.1) 60%, transparent); }
+
+  .lockup {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center; gap: 64px;
+  }
+  .icon { width: 208px; height: 208px; flex: none; }
+  [data-pli-theme="dark"] .icon { filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5)); }
+  .words { display: flex; flex-direction: column; align-items: flex-start; }
+  .wordmark { height: 144px; width: auto; }
+  .wordmark.ice, [data-pli-theme="dark"] .wordmark.ink { display: none; }
+  [data-pli-theme="dark"] .wordmark.ice { display: block; }
+  .tagline {
+    margin-top: 30px;
+    font-size: 44px; line-height: 50px; font-weight: 600; letter-spacing: -0.003em;
+    color: var(--pli-text);
+  }
+  .signature {
+    margin-top: 10px;
+    font-size: 28px; line-height: 34px; font-weight: 400; letter-spacing: 0.007em;
+    color: var(--pli-text-secondary);
+  }
+</style>
+</head>
+<body>
+<main class="canvas">
+  <div class="tile"><div class="glow"></div><div class="rim"></div></div>
+  <div class="lockup">
+    <img class="icon" src="../icon-previews/default-1024.png" alt="">
+    <div class="words">
+      <img class="wordmark ink" src="../wordmark/pli-wordmark-ink.svg" alt="pli">
+      <img class="wordmark ice" src="../wordmark/pli-wordmark-ice.svg" alt="pli">
+      <p class="tagline">The iPhone Duo fold, on your MacBook.</p>
+      <p class="signature">Fold the light.</p>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+name: Pli
+options:
+  bundleIdPrefix: ch.rubencatalao
+  deploymentTarget:
+    macOS: "26.0"
+  xcodeVersion: "26.5"
+packages:
+  PliKit:
+    path: Packages/PliKit
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    exactVersion: 2.10.0
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "0.9.0"
+    CURRENT_PROJECT_VERSION: $(MARKETING_VERSION)
+    ENABLE_HARDENED_RUNTIME: YES
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+    DEVELOPMENT_TEAM: ""
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+targets:
+  Pli:
+    type: application
+    platform: macOS
+    sources:
+      - App
+      # The Icon Composer document: Xcode 26 compiles it into Assets.car and Pli.icns.
+      - path: brand/Pli.icon
+      - path: THIRD-PARTY-NOTICES.md
+        buildPhase: resources
+    dependencies:
+      - package: PliKit
+        product: PliApp
+      - package: PliKit
+        product: PliUI
+      - package: Sparkle
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleName: Pli
+        CFBundleDisplayName: Pli
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSMinimumSystemVersion: "26.0"
+        # A menu bar app: no Dock icon and no main menu until a window opens (spec 8.1).
+        LSUIElement: true
+        LSApplicationCategoryType: public.app-category.utilities
+        NSHumanReadableCopyright: "Ruben Catalao. MIT License. Pli is not affiliated with Apple."
+        # Updates (spec 13.3): Sparkle 2. SUEnableAutomaticChecks stays absent on purpose: Sparkle then asks on the
+        # second launch (spec 8.4). The feed and its release notes are signed, and archives are checked before they
+        # are opened.
+        SUFeedURL: https://getpli.vercel.app/appcast.xml
+        SUPublicEDKey: "NJ/bd2ie7ajUgSmQo7zTrWtJpHXwGZ/Z3mQUjS/LltI="
+        SURequireSignedFeed: true
+        SUVerifyUpdateBeforeExtraction: true
+        # .pli presets (spec 10.8): Pli declares the type and opens it from Finder.
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Pli Preset
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Owner
+            LSItemContentTypes: [ch.rubencatalao.pli.preset]
+        UTExportedTypeDeclarations:
+          - UTTypeIdentifier: ch.rubencatalao.pli.preset
+            UTTypeDescription: Pli Preset
+            UTTypeConformsTo: [public.json, public.data]
+            UTTypeTagSpecification:
+              public.filename-extension: [pli]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ch.rubencatalao.pli
+        ASSETCATALOG_COMPILER_APPICON_NAME: Pli
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor

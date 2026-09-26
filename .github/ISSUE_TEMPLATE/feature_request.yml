@@ -1,0 +1,23 @@
+name: Idea
+description: Something that would make Pli better
+labels: [idea]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem you have
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you would like Pli to do
+    validations:
+      required: true
+  - type: checkboxes
+    id: promises
+    attributes:
+      label: Pli's promises
+      options:
+        - label: My idea keeps the picture of the screen in memory only, and adds no telemetry and no network connection.
+          required: true

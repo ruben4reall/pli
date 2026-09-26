@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<!-- A generic demo desktop for Pli's marketing images: an abstract wallpaper
+     in palette tints, two placeholder windows and a dock. No real app, brand,
+     photo or personal data. Palette tokens only (brand/tokens/tokens.json). -->
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#7CCBFF" stop-opacity="0.55"/><stop offset="0.55" stop-color="#EEF2F6"/><stop offset="1" stop-color="#FFD3B0" stop-opacity="0.7"/></linearGradient>
+<linearGradient id="dune1" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#C8B8FF" stop-opacity="0.75"/><stop offset="1" stop-color="#FFD3B0"/></linearGradient>
+<linearGradient id="dune2" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#0B6FB0" stop-opacity="0.72"/><stop offset="1" stop-color="#7CCBFF" stop-opacity="0.6"/></linearGradient>
+<linearGradient id="dune3" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#A6F0FF" stop-opacity="0.5"/><stop offset="1" stop-color="#C8B8FF" stop-opacity="0.35"/></linearGradient>
+<linearGradient id="photo" x1="700" y1="320" x2="1240" y2="560" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#7CCBFF"/><stop offset="1" stop-color="#0B6FB0"/></linearGradient>
+<linearGradient id="hill" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#C8B8FF" stop-opacity="0.9"/><stop offset="1" stop-color="#FFD3B0" stop-opacity="0.9"/></linearGradient>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="130%" color-interpolation-filters="sRGB">
+<feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0A0C10" flood-opacity="0.16"/></filter>
+<clipPath id="photo-clip"><rect x="712" y="326" width="516" height="236" rx="14"/></clipPath>
+</defs>
+<rect width="1440" height="900" fill="#EEF2F6"/>
+<rect width="1440" height="900" fill="url(#sky)"/>
+<path d="M0 470C180 420 330 440 520 500S900 590 1120 520S1360 440 1440 452V900H0Z" fill="url(#dune3)"/>
+<path d="M0 610C210 548 420 560 640 612S1050 690 1260 628S1400 590 1440 596V900H0Z" fill="url(#dune1)"/>
+<path d="M0 730C260 676 480 690 720 730S1130 790 1340 742L1440 724V900H0Z" fill="url(#dune2)"/>
+
+<!-- Menu bar -->
+<rect width="1440" height="30" fill="#FFFFFF" fill-opacity="0.62"/>
+<rect x="36" y="11" width="18" height="8" rx="4" fill="#1D1D1F" fill-opacity="0.72"/>
+<rect x="72" y="11" width="44" height="8" rx="4" fill="#1D1D1F" fill-opacity="0.5"/>
+<rect x="132" y="11" width="36" height="8" rx="4" fill="#1D1D1F" fill-opacity="0.32"/>
+<rect x="184" y="11" width="40" height="8" rx="4" fill="#1D1D1F" fill-opacity="0.32"/>
+<rect x="1250" y="11" width="28" height="8" rx="4" fill="#1D1D1F" fill-opacity="0.32"/>
+<rect x="1294" y="11" width="110" height="8" rx="4" fill="#1D1D1F" fill-opacity="0.5"/>
+
+<!-- Window: a document -->
+<g filter="url(#shadow)">
+<rect x="150" y="150" width="600" height="440" rx="18" fill="#FFFFFF"/>
+</g>
+<rect x="150.5" y="150.5" width="599" height="439" rx="17.5" fill="none" stroke="#1D1D1F" stroke-opacity="0.08"/>
+<circle cx="182" cy="182" r="7" fill="#D2D2D7"/><circle cx="206" cy="182" r="7" fill="#D2D2D7"/><circle cx="230" cy="182" r="7" fill="#D2D2D7"/>
+<rect x="198" y="236" width="300" height="22" rx="11" fill="#1D1D1F" fill-opacity="0.82"/>
+<rect x="198" y="286" width="500" height="12" rx="6" fill="#1D1D1F" fill-opacity="0.16"/>
+<rect x="198" y="314" width="468" height="12" rx="6" fill="#1D1D1F" fill-opacity="0.16"/>
+<rect x="198" y="342" width="484" height="12" rx="6" fill="#1D1D1F" fill-opacity="0.16"/>
+<rect x="198" y="370" width="300" height="12" rx="6" fill="#1D1D1F" fill-opacity="0.16"/>
+<rect x="198" y="420" width="150" height="44" rx="22" fill="#0B6FB0"/>
+<rect x="226" y="437" width="94" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.9"/>
+
+<!-- Window: a photo -->
+<g filter="url(#shadow)">
+<rect x="690" y="270" width="560" height="400" rx="18" fill="#FFFFFF"/>
+</g>
+<rect x="690.5" y="270.5" width="559" height="399" rx="17.5" fill="none" stroke="#1D1D1F" stroke-opacity="0.08"/>
+<g clip-path="url(#photo-clip)">
+<rect x="712" y="326" width="516" height="236" fill="url(#photo)"/>
+<circle cx="1120" cy="392" r="34" fill="#FFFFFF" fill-opacity="0.9"/>
+<path d="M712 520C800 470 880 480 960 510S1120 540 1228 486V562H712Z" fill="url(#hill)"/>
+</g>
+<circle cx="722" cy="298" r="7" fill="#D2D2D7"/><circle cx="746" cy="298" r="7" fill="#D2D2D7"/><circle cx="770" cy="298" r="7" fill="#D2D2D7"/>
+<rect x="712" y="588" width="260" height="16" rx="8" fill="#1D1D1F" fill-opacity="0.72"/>
+<rect x="712" y="620" width="400" height="12" rx="6" fill="#1D1D1F" fill-opacity="0.16"/>
+
+<!-- Dock -->
+<rect x="480" y="800" width="480" height="76" rx="24" fill="#FFFFFF" fill-opacity="0.5"/>
+<rect x="480.5" y="800.5" width="479" height="75" rx="23.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.7"/>
+<rect x="502" y="814" width="48" height="48" rx="12" fill="#0B6FB0"/>
+<rect x="566" y="814" width="48" height="48" rx="12" fill="#7CCBFF"/>
+<rect x="630" y="814" width="48" height="48" rx="12" fill="#C8B8FF"/>
+<rect x="694" y="814" width="48" height="48" rx="12" fill="#FFD3B0"/>
+<rect x="758" y="814" width="48" height="48" rx="12" fill="#8A94A3"/>
+<rect x="822" y="814" width="48" height="48" rx="12" fill="#161A22"/>
+<rect x="886" y="814" width="48" height="48" rx="12" fill="#EEF2F6" stroke="#D2D2D7"/>
+</svg>

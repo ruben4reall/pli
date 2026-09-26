@@ -1,0 +1,10 @@
+{
+  "name": "pli-website",
+  "private": true,
+  "type": "module",
+  "description": "The Pli website: static files here, dev tools in tools/, tests in tests/. No dependencies.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  }
+}

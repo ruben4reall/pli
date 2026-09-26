@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="hinge-halo" x1="0" y1="791" x2="0" y2="833" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7CCBFF" stop-opacity="0"/><stop offset="0.29" stop-color="#7CCBFF" stop-opacity="0.3"/><stop offset="0.71" stop-color="#7CCBFF" stop-opacity="0.3"/><stop offset="1" stop-color="#7CCBFF" stop-opacity="0"/></linearGradient>
+<linearGradient id="hinge-alpha" x1="62.14" y1="0" x2="961.86" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="0.05" stop-color="#FFFFFF" stop-opacity="1"/><stop offset="0.95" stop-color="#FFFFFF" stop-opacity="1"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<mask id="hinge-ends" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024"><rect width="1024" height="1024" fill="url(#hinge-alpha)"/></mask>
+</defs>
+<g mask="url(#hinge-ends)">
+<rect x="62.14" y="791" width="899.73" height="42" fill="url(#hinge-halo)"/>
+<rect x="62.14" y="803" width="899.73" height="18" rx="9" fill="#FFFFFF"/>
+</g>
+</svg>

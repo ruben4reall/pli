@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1532 572">
+<defs>
+<linearGradient id="key" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#2f2f33"/>
+<stop offset="14%" stop-color="#2c2c2f"/>
+<stop offset="100%" stop-color="#232326"/>
+</linearGradient>
+</defs>
+<rect width="1532" height="572" fill="#0b0b0c"/>
+<rect x="21" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="128.14" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="235.29" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="342.43" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="449.57" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="556.71" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="663.86" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="771" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="878.14" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="985.29" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="1092.43" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="1199.57" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="1306.71" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="1413.86" y="21" width="97.14" height="80" rx="9" fill="url(#key)"/>
+<rect x="21" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="121" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="221" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="321" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="421" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="521" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="621" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="721" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="821" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="921" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1021" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1121" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1221" y="111" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1321" y="111" width="190" height="80" rx="9" fill="url(#key)"/>
+<rect x="21" y="201" width="140" height="80" rx="9" fill="url(#key)"/>
+<rect x="171" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="271" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="371" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="471" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="571" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="671" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="771" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="871" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="971" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1071" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1171" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1271" y="201" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1371" y="201" width="140" height="80" rx="9" fill="url(#key)"/>
+<rect x="21" y="291" width="165" height="80" rx="9" fill="url(#key)"/>
+<rect x="196" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="296" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="396" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="496" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="596" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="696" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="796" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="896" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="996" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1096" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1196" y="291" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1296" y="291" width="215" height="80" rx="9" fill="url(#key)"/>
+<rect x="21" y="381" width="215" height="80" rx="9" fill="url(#key)"/>
+<rect x="246" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="346" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="446" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="546" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="646" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="746" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="846" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="946" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1046" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1146" y="381" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1246" y="381" width="265" height="80" rx="9" fill="url(#key)"/>
+<rect x="21" y="471" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="121" y="471" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="221" y="471" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="321" y="471" width="115" height="80" rx="9" fill="url(#key)"/>
+<rect x="446" y="471" width="540" height="80" rx="9" fill="url(#key)"/>
+<rect x="996" y="471" width="115" height="80" rx="9" fill="url(#key)"/>
+<rect x="1121" y="471" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1221" y="471" width="90" height="80" rx="9" fill="url(#key)"/>
+<rect x="1321" y="471" width="90" height="35" rx="9" fill="url(#key)"/>
+<rect x="1321" y="516" width="90" height="35" rx="9" fill="url(#key)"/>
+<rect x="1421" y="471" width="90" height="80" rx="9" fill="url(#key)"/>
+</svg>

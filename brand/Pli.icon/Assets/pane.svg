@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="frost" x1="0" y1="236.12" x2="0" y2="812" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#EEF2F6" stop-opacity="0.94"/><stop offset="0.32" stop-color="#EEF2F6" stop-opacity="0.5"/><stop offset="0.7" stop-color="#7CCBFF" stop-opacity="0.14"/><stop offset="1" stop-color="#7CCBFF" stop-opacity="0.1"/></linearGradient>
+<linearGradient id="iridescent" x1="156.58" y1="0" x2="867.42" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A6F0FF" stop-opacity="1"/><stop offset="0.5" stop-color="#C8B8FF" stop-opacity="1"/><stop offset="1" stop-color="#FFD3B0" stop-opacity="1"/></linearGradient>
+<linearGradient id="rim-alpha" x1="0" y1="236.12" x2="0" y2="296.12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/><stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0.8"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<clipPath id="pane"><path d="M163.21 302.11A60 60 0 0 1 222.91 236.12L801.09 236.12A60 60 0 0 1 860.79 302.11L810.47 803A10 10 0 0 1 800.52 812L223.48 812A10 10 0 0 1 213.53 803Z"/></clipPath>
+<mask id="rim-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024"><rect width="1024" height="1024" fill="url(#rim-alpha)"/></mask>
+</defs>
+<path d="M163.21 302.11A60 60 0 0 1 222.91 236.12L801.09 236.12A60 60 0 0 1 860.79 302.11L810.47 803A10 10 0 0 1 800.52 812L223.48 812A10 10 0 0 1 213.53 803Z" fill="url(#frost)"/>
+<g clip-path="url(#pane)" mask="url(#rim-fade)">
+<rect x="0" y="234.12" width="1024" height="62" fill="url(#iridescent)"/>
+</g>
+</svg>

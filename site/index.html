@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pli: the iPhone Duo fold, on your MacBook</title>
+  <meta name="description" content="A free, open source Mac app. Close the lid and your desktop turns to frosted glass swinging on the hinge while the picture stays still. Open it, and everything unfolds.">
+  <link rel="canonical" href="https://getpli.vercel.app/">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pli">
+  <meta property="og:url" content="https://getpli.vercel.app/">
+  <meta property="og:title" content="Pli: the iPhone Duo fold, on your MacBook">
+  <meta property="og:description" content="Close the lid and your desktop turns to frosted glass. Open it, and everything unfolds. Free and open source, for macOS 26.">
+  <meta property="og:image" content="https://getpli.vercel.app/assets/brand/og.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Pli: the iPhone Duo fold, on your MacBook.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/symbol.svg">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/mac.css">
+  <link rel="modulepreload" href="js/hero.js">
+  <link rel="modulepreload" href="js/renderer.js">
+  <link rel="modulepreload" href="js/shader.js">
+  <link rel="modulepreload" href="js/optics.js">
+  <link rel="modulepreload" href="js/timeline.js">
+  <link rel="modulepreload" href="js/looks.js">
+  <script src="js/boot.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <nav class="nav-inner" aria-label="Pli">
+      <a class="nav-brand" href="#top"><img src="assets/brand/wordmark.svg" alt="Pli" width="44" height="22"></a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#looks">Looks</a>
+        <a href="#app">The app</a>
+        <a href="#your-mac">Your Mac</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/ruben4reall/pli/releases/latest/download/Pli.dmg">Download</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-copy">
+        <p class="hero-name">Pli</p>
+        <h1 id="hero-title">The iPhone Duo fold, on your MacBook.</h1>
+      </div>
+      <figure class="mac" data-mac role="img" aria-label="A MacBook drawn in the page. Its lid opens and its desktop unfolds out of frosted glass.">
+        <div class="mac-model">
+          <div class="mac-shadow"></div>
+          <div class="mac-base"><div class="mac-keyboard"></div><div class="mac-trackpad"></div></div>
+          <div class="mac-front"></div>
+          <div class="mac-lid">
+            <div class="mac-screen">
+              <div class="mac-display">
+                <img class="mac-still" src="assets/desktop.webp" width="1920" height="1247" alt="" fetchpriority="high">
+                <canvas class="mac-glass" aria-hidden="true"></canvas>
+              </div>
+              <span class="mac-camera"></span>
+            </div>
+            <div class="mac-shell"></div>
+            <div class="mac-edge"></div>
+          </div>
+        </div>
+      </figure>
+      <div class="wrap hero-foot">
+        <p class="hero-sub">Close the lid and your desktop turns to frosted glass, swinging on the hinge while the picture stays still. Open it, and everything unfolds.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/ruben4reall/pli/releases/latest/download/Pli.dmg">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5v9M4 7l4 4 4-4M2.5 14h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download for Mac
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/ruben4reall/pli">View on GitHub</a>
+        </div>
+        <ul class="facts" aria-label="At a glance">
+          <li>Free and open source</li>
+          <li>Public preview 0.9</li>
+          <li>macOS 26 or later</li>
+          <li>16 MB of memory at rest</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-2" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="center reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 class="h2" id="how-title">Your lid drives the glass.</h2>
+          <p class="lead">Pli reads the real angle of your screen, many times a second. Your desktop stays exactly where it is; a pane of glass swings over it with the lid, and the farther it leans, the more frosted it gets.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <figure><img src="assets/how/duo-90.webp" width="720" height="468" alt="The desktop, still sharp, with the lid at 90 degrees." loading="lazy"><span class="angle">90°</span></figure>
+            <h3>Start closing</h3>
+            <p>Past 90°, a clear pane of glass appears over your desktop, still sharp.</p>
+          </li>
+          <li class="step reveal">
+            <figure><img src="assets/how/duo-55.webp" width="720" height="468" alt="The desktop half frosted, the glass leaning back, with the lid at 55 degrees." loading="lazy"><span class="angle">55°</span></figure>
+            <h3>The glass leans</h3>
+            <p>It tilts on the hinge while the picture stays still, and frost rises from the bottom.</p>
+          </li>
+          <li class="step reveal">
+            <figure><img src="assets/how/duo-30.webp" width="720" height="468" alt="The desktop fully frosted and dark, with the lid at 30 degrees." loading="lazy"><span class="angle">30°</span></figure>
+            <h3>Fully frosted</h3>
+            <p>Near the end, the glass darkens to black. Open the lid and it all unfolds, the same way back.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="looks" aria-labelledby="looks-title">
+      <div class="wrap">
+        <div class="center reveal">
+          <p class="eyebrow">Looks</p>
+          <h2 class="h2" id="looks-title">Seven looks. Or your own.</h2>
+          <p class="lead">Start from the one faithful to the iPhone Duo, or pick a lighter, darker or more iridescent glass. Every setting can be tuned, saved and shared as a file.</p>
+        </div>
+        <div class="looks reveal" data-looks data-live="off">
+          <div class="looks-stage">
+            <img src="assets/presets/duo.webp" width="1440" height="935" alt="" loading="lazy" data-look-still>
+            <canvas aria-hidden="true"></canvas>
+          </div>
+          <div class="looks-controls">
+            <div class="chips" role="group" aria-label="Look">
+              <button class="chip" type="button" data-look="duo" aria-pressed="true">Duo</button>
+              <button class="chip" type="button" data-look="subtle" aria-pressed="false">Subtle</button>
+              <button class="chip" type="button" data-look="deepFrost" aria-pressed="false">Deep Frost</button>
+              <button class="chip" type="button" data-look="night" aria-pressed="false">Night</button>
+              <button class="chip" type="button" data-look="crystal" aria-pressed="false">Crystal</button>
+              <button class="chip" type="button" data-look="prism" aria-pressed="false">Prism</button>
+              <button class="chip" type="button" data-look="cinema" aria-pressed="false">Cinema</button>
+            </div>
+            <label class="lid">Lid <input type="range" min="0" max="110" step="1" value="60" data-lid-input aria-describedby="lid-help"><output data-lid-output>60°</output></label>
+          </div>
+          <p class="look-note" id="lid-help" data-look-note aria-live="polite">Duo: faithful to the iPhone Duo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-2" id="app" aria-labelledby="app-title">
+      <div class="wrap">
+        <div class="center reveal">
+          <p class="eyebrow">The app</p>
+          <h2 class="h2" id="app-title">Simple on the surface. Deep when you want it.</h2>
+          <p class="lead">One dark window with your lid's angle in large numerals and a MacBook that moves with yours. Three sliders up front; everything else one click away.</p>
+        </div>
+        <div class="app-shots reveal">
+          <figure>
+            <img src="assets/app/settings.webp" width="1600" height="1148" alt="Pli's settings window: the lid at 62 degrees in large numerals, a MacBook showing the effect on its display, seven looks and three sliders: Frost, Darkening and Max Tilt." loading="lazy">
+            <figcaption><b>Settings</b>Look, Motion, Triggers and General, each on one page.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/app/menu-bar.webp" width="1000" height="684" alt="Pli's menu bar panel: the angle, an on and off switch, Play fold, Fold and lock, and the looks." loading="lazy">
+            <figcaption><b>Menu bar</b>The angle live, the looks, a demo and an animated lock.</figcaption>
+          </figure>
+        </div>
+        <div class="features reveal">
+          <div class="feature"><h3>On the lock screen</h3><p>Close the lid on your desktop, open it on the lock screen: it unfolds there too, with your wallpaper.</p></div>
+          <div class="feature"><h3>Animated lock</h3><p>Press <kbd>⌃⌥⌘L</kbd> and your Mac folds itself, then locks.</p></div>
+          <div class="feature"><h3>A demo on demand</h3><p>Press <kbd>⌃⌥⌘P</kbd> to watch a full fold without touching the lid. Handy on a desk.</p></div>
+          <div class="feature"><h3>No false starts</h3><p>Pli learns where your screen rests and ignores the small moves of typing or carrying.</p></div>
+          <div class="feature"><h3>Your Mac's own look</h3><p>Follows Reduce Motion, lightens itself in Low Power Mode, and never touches an external display.</p></div>
+          <div class="feature"><h3>Share a look</h3><p>Save your settings as a <code>.pli</code> file and send it to a friend. One double click installs it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="your-mac" aria-labelledby="mac-title">
+      <div class="wrap">
+        <div class="center reveal">
+          <p class="eyebrow">Your Mac</p>
+          <h2 class="h2" id="mac-title">Light on your Mac. Clear about which ones.</h2>
+          <p class="lead">Pli sleeps when your lid does nothing. It wakes for the second a fold takes, then gives everything back.</p>
+        </div>
+        <div class="stats reveal">
+          <div class="stat"><p class="num">16<small>MB</small></p><h3>Memory at rest</h3><p>What Pli uses while it waits: less than a browser tab.</p></div>
+          <div class="stat"><p class="num">~100<small>MB</small></p><h3>During a fold</h3><p>The picture of your desktop, on the graphics chip. Freed one second after the lid stops.</p></div>
+          <div class="stat"><p class="num">&lt;0.5<small>%</small></p><h3>Of one core at rest</h3><p>Reading the lid ten times a second. No timer runs otherwise.</p></div>
+          <div class="stat"><p class="num">2<small>ms</small></p><h3>Per frame, at most</h3><p>The glass is drawn on the GPU at 120 Hz, and lighter on battery saver.</p></div>
+        </div>
+        <p class="fine center reveal">Measured on a 14-inch MacBook Pro (M3 Pro), macOS 26.5. The settings window shows the live figure for your Mac.</p>
+
+        <div class="compat reveal">
+          <div class="compat-card">
+            <h3><span class="dot ok"></span>Folds with your lid</h3>
+            <p>MacBooks with a lid angle sensor, running macOS 26.</p>
+            <ul>
+              <li><span>MacBook Pro 14 inch (M3 Pro)</span><span>Tested</span></li>
+              <li><span>Other MacBook Pro 14 and 16 inch with Apple silicon</span><span>Expected</span></li>
+              <li><span>MacBook Air 13 and 15 inch, M2 and later</span><span>Expected</span></li>
+              <li><span>MacBook Pro 16 inch (2019, Intel)</span><span>Has the sensor, untested</span></li>
+            </ul>
+          </div>
+          <div class="compat-card">
+            <h3><span class="dot warn"></span>Shortcuts only</h3>
+            <p>No lid sensor Pli can read: the demo, the animated lock and the unlock reveal still work.</p>
+            <ul>
+              <li><span>MacBook Air (M1, 2020)</span><span>Sensor not readable</span></li>
+              <li><span>MacBook Pro 13 inch with Touch Bar (M1, M2)</span><span>Sensor not readable</span></li>
+              <li><span>iMac, Mac mini, Mac Studio, Mac Pro</span><span>No lid</span></li>
+              <li><span>Any MacBook closed on an external display</span><span>Pauses</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="check reveal">
+          <b>Not sure about yours?</b> Open Pli: within a second it tells you whether it can read your lid, and what works on your Mac. Macs that cannot run macOS 26 cannot run Pli.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-2" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="center reveal">
+          <p class="eyebrow">Privacy</p>
+          <h2 class="h2" id="privacy-title">Your screen stays yours.</h2>
+          <p class="lead">To show your desktop through the glass, Pli takes one picture of it when the lid starts to close. That picture never leaves memory.</p>
+        </div>
+        <div class="promises">
+          <div class="promise reveal">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="7" width="22" height="15" rx="2.5"/><path d="M11 27h10M16 22v5"/><path d="M12.5 14.5l2.5 2.5 4.5-5"/></svg>
+            <h3>Never on disk</h3>
+            <p>The picture lives on the graphics chip, is never saved, and is released a second after the fold.</p>
+          </div>
+          <div class="promise reveal">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M8.2 8.2l15.6 15.6"/></svg>
+            <h3>No network, no tracking</h3>
+            <p>No account, no analytics. The only connection Pli makes is to check for updates, and you can turn it off.</p>
+          </div>
+          <div class="promise reveal">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 9l-7 7 7 7M21 9l7 7-7 7M18 6l-4 20"/></svg>
+            <h3>Open source</h3>
+            <p>Every line is on GitHub under the MIT License, so you can read exactly what it does.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap-narrow">
+        <h2 class="h2 reveal" id="faq-title">Questions</h2>
+        <div class="faq reveal">
+          <details>
+            <summary>Why does Pli ask for Screen Recording?</summary>
+            <div><p>To draw your desktop through the glass, Pli needs one picture of it at the start of each fold, and macOS only allows that with the Screen Recording permission. The picture stays in memory and is never recorded, saved or sent.</p><p>Without the permission, Pli still works in Basic mode: the glass frosts and darkens without the picture behind it.</p></div>
+          </details>
+          <details>
+            <summary>How much memory and battery does it use?</summary>
+            <div><p>About 16 MB while it waits, and about 100 MB more during a fold, for the second the glass is on screen. At rest it only reads the lid ten times a second, under half a percent of one core. On battery saver it draws a lighter glass.</p><p>The General page of the settings shows the memory Pli uses on your Mac, live.</p></div>
+          </details>
+          <details>
+            <summary>Will it work on my Mac?</summary>
+            <div><p>If your MacBook has a lid angle sensor Pli can read and runs macOS 26, the fold follows your lid. That covers recent MacBook Air and MacBook Pro models; see the list above. On other Macs, the demo, the animated lock and the unlock reveal still work with shortcuts. Pli tells you which case you are in as soon as it starts.</p></div>
+          </details>
+          <details>
+            <summary>Does it use private macOS features?</summary>
+            <div><p>Three, each in one clearly marked file: showing the unfold above the lock screen, locking at the end of the animated lock, and hiding the cursor during a fold. If a macOS update removes one, only that feature turns off. Nothing crashes.</p></div>
+          </details>
+          <details>
+            <summary>What about external displays?</summary>
+            <div><p>The effect plays on your MacBook's own screen only. External displays are never touched, and when the MacBook is closed on an external display, Pli pauses.</p></div>
+          </details>
+          <details>
+            <summary>How do I remove it?</summary>
+            <div><p>Quit Pli from its menu and move it to the Trash. Its settings are in one preferences file and one folder of looks, both removed by any app cleaner.</p></div>
+          </details>
+          <details>
+            <summary>Is Pli made by Apple?</summary>
+            <div><p>No. Pli is an independent open source project, not affiliated with Apple. iPhone and MacBook are trademarks of Apple Inc.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section download" id="download" aria-labelledby="download-title">
+      <div class="wrap">
+        <img class="icon reveal" src="assets/brand/icon-256.png" width="128" height="128" alt="The Pli app icon: a pane of glass leaning on its hinge." loading="lazy">
+        <h2 class="h2 reveal" id="download-title">Fold the light.</h2>
+        <p class="lead reveal">Free, open source, and ready in a minute. This is the public preview; 1.0 arrives on October 15, through the app itself.</p>
+        <div class="actions reveal">
+          <a class="btn btn-primary" href="https://github.com/ruben4reall/pli/releases/latest/download/Pli.dmg">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5v9M4 7l4 4 4-4M2.5 14h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download for Mac
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/ruben4reall/pli">View on GitHub</a>
+        </div>
+        <p class="fine reveal">macOS 26 or later <span aria-hidden="true">·</span> Apple silicon and Intel <span aria-hidden="true">·</span> Notarized by Apple. Updates arrive through the app, when you allow them.</p>
+        <p class="fine reveal">Or install it with Homebrew: <code>brew install --cask ruben4reall/tap/pli</code></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="footer-brand" href="#top"><img src="assets/brand/wordmark.svg" alt="Pli" width="44" height="22" loading="lazy"></a>
+        <p class="footer-line">Pli is French for fold.</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/ruben4reall/pli">GitHub</a></li>
+          <li><a href="https://github.com/ruben4reall/pli/releases">Releases</a></li>
+          <li><a href="https://github.com/ruben4reall/pli/issues">Report an Issue</a></li>
+          <li><a href="https://github.com/ruben4reall/pli/blob/main/LICENSE">MIT License</a></li>
+        </ul>
+      </div>
+      <p class="legal">Pli is not affiliated with Apple. iPhone, MacBook and macOS are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+</body>
+</html>

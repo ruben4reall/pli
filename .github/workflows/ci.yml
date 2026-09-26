@@ -6,13 +6,13 @@ jobs:
   engine:
     runs-on: macos-26
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Test PliKit
         run: swift test --package-path Packages/PliKit
   app:
     runs-on: macos-26
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Build Pli.app (ad hoc signature)
@@ -20,7 +20,7 @@ jobs:
   scripts:
     runs-on: macos-26
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Test the release scripts

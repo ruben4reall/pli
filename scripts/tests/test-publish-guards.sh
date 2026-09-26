@@ -9,4 +9,4 @@ refuses "no confirmation outside a terminal" "not confirmed" scripts/publish.sh 
 refuses "a confirmation for another version" "not confirmed" scripts/publish.sh release 1.0.0 --confirm 1.0.1
 refuses "a site deploy without the Vercel scope" "PLI_VERCEL_SCOPE" env -u PLI_VERCEL_SCOPE scripts/publish.sh site 1.0.0 --confirm 1.0.0
 refuses "a release from an incomplete dist/" "dist/ is incomplete" scripts/publish.sh release 9.9.9 --confirm 9.9.9
-refuses "a tap push from an incomplete dist/" "is missing" scripts/publish.sh tap 9.9.9 --confirm 9.9.9
+refuses "a tap push without the cask of that version" "Casks/pli.rb is" scripts/publish.sh tap 9.9.9 --confirm 9.9.9

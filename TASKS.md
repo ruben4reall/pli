@@ -4,7 +4,7 @@
 
 ## To do
 
-- [ ] 1.0.0 on October 15: raise MARKETING_VERSION, add its CHANGELOG section, run the signed release, then scripts/publish.sh release, tap and site
+- [ ] Each later release: raise MARKETING_VERSION, add its CHANGELOG section, run the signed release, then scripts/publish.sh release, tap and site
 - [ ] Watch Sparkle's releases and raise exactVersion in project.yml when one ships
 - [ ] Upload the social preview (docs/brand/social-preview.png) in the repository settings
 - [ ] Owner: run the early hardware checks (R1 to R7) and record the decisions
@@ -20,6 +20,7 @@
 
 ## Done
 
+- [x] Pli 1.0.0 for everyone: notarized universal release, Sparkle update from 0.9.0, Homebrew, website (2026-09-27)
 - [x] Pli 0.9.0 public preview: notarized release, Sparkle updates, Homebrew tap, website with downloads (2026-09-27)
 - [x] Release pipeline: notarized DMG, Sparkle updates
 - [x] Website live at https://getpli.vercel.app (Vercel project pli, personal scope), page counter wired

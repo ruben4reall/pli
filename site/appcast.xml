@@ -1,8 +1,28 @@
-<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+<?xml version="1.0" standalone="yes"?>
+<!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
---><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+-->
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Pli</title>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Sun, 27 Sep 2026 01:34:19 +0200</pubDate>
+            <link>https://getpli.vercel.app</link>
+            <sparkle:fullReleaseNotesLink>https://github.com/ruben4reall/pli/releases</sparkle:fullReleaseNotesLink>
+            <sparkle:version>1.0.0</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[Pli 1.0: ready for everyone. The iPhone Duo fold on your MacBook, driven by the real angle of the lid, free and open source.
+
+### New
+
+- **Released for every Mac that runs macOS 26.** On MacBooks whose lid angle sensor Pli can read, the fold follows your lid; on every other Mac, the demo (⌃⌥⌘P), the animated lock (⌃⌥⌘L) and the unfold after you unlock work with their shortcuts. Settings, General, This Mac says which case yours is.
+- **Universal.** One app for Apple silicon and Intel, signed with a Developer ID and notarized by Apple.
+- Everything from the public preview below: the fold, the unfold on wake, seven looks and your own, the dark Settings window with its 3D MacBook, the memory Pli uses shown live, and updates through Sparkle.
+]]></description>
+            <enclosure url="https://github.com/ruben4reall/pli/releases/download/v1.0.0/Pli-1.0.0.dmg" length="10294397" type="application/octet-stream" sparkle:edSignature="mCq+dnqlZffRLAe4V8N4F1Qq7SZZqnXCiXenR0ptpPGO4Coghf+/sDGuBFcwG2Yxaku8+DdAfohpjNs1qWDrAw=="/>
+        </item>
         <item>
             <title>0.9.0</title>
             <pubDate>Sun, 27 Sep 2026 01:12:10 +0200</pubDate>
@@ -27,10 +47,11 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
 - **Updates.** Sparkle checks once a day if you allow it (Pli asks on its second launch), or when you choose *Check for Updates…* in the panel. Updates are EdDSA-signed and notarized.
 - **Homebrew.** `brew install --cask ruben4reall/tap/pli`.
 ]]></description>
-            <enclosure url="https://github.com/ruben4reall/pli/releases/download/v0.9.0/Pli-0.9.0.dmg" length="10294385" type="application/octet-stream" sparkle:edSignature="AaP3WZSbP1QebicEMyFjO3kkp0kKj5J1bo5IKslOMjprZYeH0Vmd8I5OW1kxKMPEZynp3fPpVbK1Bu5DP6MCAQ=="></enclosure>
+            <enclosure url="https://github.com/ruben4reall/pli/releases/download/v0.9.0/Pli-0.9.0.dmg" length="10294385" type="application/octet-stream" sparkle:edSignature="AaP3WZSbP1QebicEMyFjO3kkp0kKj5J1bo5IKslOMjprZYeH0Vmd8I5OW1kxKMPEZynp3fPpVbK1Bu5DP6MCAQ=="/>
         </item>
     </channel>
-</rss><!-- sparkle-signatures:
-edSignature: PquNtia7VORqK7CJqvSLmCtqEfejgNIySvp2hgjZoozwrNzha/xewLLqPVzDaJDn3erW2T0yYDnJgehj42pVAA==
-length: 3776
+</rss>
+<!-- sparkle-signatures:
+edSignature: 24x1gor0dmsqtP+n9O7sxraZXCUHBcyf98J7W0QuPAkug57qlI63xoZoGdWuSzzi9dr0Clz2ZaucaDtAlaZ/AQ==
+length: 5372
 -->

@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Ask a question or share an idea
+    url: https://github.com/ruben4reall/pli/discussions
+    about: Questions, looks to share and ideas go to Discussions; issues are for bugs.
   - name: Report a security issue privately
     url: https://github.com/ruben4reall/pli/security/advisories/new
     about: Please do not open a public issue for a vulnerability.

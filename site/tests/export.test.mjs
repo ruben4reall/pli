@@ -18,10 +18,12 @@ function webpSize(bytes) {
   return null;
 }
 
-test('ten glass frames are exported from the real desktop', () => {
-  assert.equal(JOBS.length, 10);
+test('seventeen glass frames are exported from the real desktops', () => {
+  assert.equal(JOBS.length, 17);
   assert.equal(JOBS[0].file, 'assets/presets/duo.webp');
-  assert.ok(existsSync(new URL('../assets/desktop.webp', import.meta.url)), 'assets/desktop.webp comes from brand-sources/real-desktop');
+  for (const desktop of ['desktop.webp', 'desktop-tahoe.webp']) {
+    assert.ok(existsSync(new URL(`../assets/${desktop}`, import.meta.url)), `assets/${desktop} is a real desktop picture`);
+  }
 });
 
 for (const job of JOBS) {

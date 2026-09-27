@@ -7,13 +7,15 @@ import { launchChrome } from './cdp.mjs';
 import { SITE_DIR, startServer } from './serve.mjs';
 import { DISPLAY_RATIO, PRESETS } from '../js/optics.js';
 
-/** Presets are shown at the lid control's starting angle; How It Works at three angles of the Duo preset. */
+/** Presets are shown at the lid control's starting angle, on both wallpapers; How It Works at three angles of the Duo
+ * preset, on the Tahoe wallpaper, whose colors show the glass best. */
 export const PRESET_ANGLE = 60;
-export const HOW_ANGLES = [90, 55, 30];
+export const HOW_ANGLES = [75, 50, 25];
 const sized = (width) => ({ width, height: Math.round(width / DISPLAY_RATIO) });
 
 export const JOBS = [
-  ...PRESETS.map((p) => ({ file: `assets/presets/${p.id}.webp`, call: `__export.frame('${p.id}', ${PRESET_ANGLE}, 1440, 0.86)`, ...sized(1440), maxKB: 140 })),
+  ...PRESETS.map((p) => ({ file: `assets/presets/${p.id}.webp`, call: `__export.frame('${p.id}', ${PRESET_ANGLE}, 1440, 0.82, 'tahoe')`, ...sized(1440), maxKB: 140 })),
+  ...PRESETS.map((p) => ({ file: `assets/presets/black/${p.id}.webp`, call: `__export.frame('${p.id}', ${PRESET_ANGLE}, 1440, 0.86, 'black')`, ...sized(1440), maxKB: 140 })),
   ...HOW_ANGLES.map((a) => ({ file: `assets/how/duo-${a}.webp`, call: `__export.frame('duo', ${a}, 720, 0.86)`, ...sized(720), maxKB: 60 })),
 ];
 

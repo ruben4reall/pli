@@ -324,6 +324,10 @@ code, kbd {
 .facts li { display: flex; align-items: center; gap: 7px; }
 .facts li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--text-3); }
 .facts li:first-child::before { display: none; }
+@media (max-width: 560px) {
+  .facts { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; gap: 6px 20px; }
+  .facts li::before { display: none; }
+}
 
 /* ---------- How it works ---------- */
 
@@ -393,6 +397,10 @@ code, kbd {
 }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.walls { display: inline-flex; padding: 3px; border-radius: 980px; background: rgb(255 255 255 / 0.06); box-shadow: inset 0 0 0 1px var(--edge); }
+.wall { padding: 6px 14px; border: 0; border-radius: 980px; background: none; color: var(--text-2); font: inherit; font-size: 14px; cursor: pointer; }
+.wall:hover { color: var(--text); }
+.wall[aria-pressed='true'] { background: rgb(255 255 255 / 0.16); color: var(--text); font-weight: 500; }
 .chip {
   padding: 8px 16px;
   border: 0;
@@ -420,10 +428,11 @@ code, kbd {
 .lid input { flex: 1; accent-color: var(--text); }
 .looks[data-live='off'] .lid { display: none; }
 
-.look-note { margin-top: 18px; color: var(--text-3); font-size: 15px; min-height: 1.5em; }
+.looks-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 18px; }
+.look-note { color: var(--text-3); font-size: 15px; min-height: 1.5em; }
 
 @media (max-width: 834px) {
-  .looks-controls { grid-template-columns: 1fr; }
+  .looks-controls { grid-template-columns: minmax(0, 1fr); }
   .lid { min-width: 0; }
 }
 
@@ -474,7 +483,7 @@ code, kbd {
   margin-top: 64px;
 }
 .stat { padding: 28px 24px; border-radius: 20px; background: var(--card); box-shadow: 0 0 0 1px var(--edge); }
-.stat .num { font-size: clamp(40px, 4.4vw, 56px); line-height: 1; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat .num { margin-top: 0; color: var(--text); font-size: clamp(40px, 4.4vw, 56px); line-height: 1; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .stat .num small { font-size: 0.45em; font-weight: 600; letter-spacing: 0; color: var(--text-2); margin-left: 3px; }
 .stat h3 { margin-top: 14px; font-size: 17px; font-weight: 600; }
 .stat p { margin-top: 6px; color: var(--text-2); font-size: 15px; line-height: 1.47; }

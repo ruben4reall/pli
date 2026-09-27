@@ -1,6 +1,7 @@
 // The Looks section: pick a look and drag the lid, and the glass is drawn live on the real desktop with Pli's
-// optical model. Without WebGL2, with reduced motion or a lost context, the pictures exported for each look
-// stay (tools/export-images.mjs), and the chips still switch them.
+// optical model, on either real wallpaper (macOS 26's Tahoe, or the MacBook Pro's Pro Black). Without WebGL2, with
+// reduced motion or a lost context, the pictures exported for each look and wallpaper stay (tools/export-images.mjs),
+// and the chips still switch them.
 import { GlassRenderer } from './renderer.js';
 import { PAGE_LID_REST, foldProgress, presetById } from './optics.js';
 
@@ -13,8 +14,12 @@ export function startLooks(doc = document, win = window) {
   const output = root.querySelector('[data-lid-output]');
   const note = root.querySelector('[data-look-note]');
   const chips = [...root.querySelectorAll('[data-look]')];
+  const walls = [...root.querySelectorAll('[data-wall]')];
+  const DESKTOPS = { tahoe: 'assets/desktop-tahoe.webp', black: 'assets/desktop.webp' };
+  const sources = {};
 
   let look = presetById('duo');
+  let wall = 'tahoe';
   let angle = Number(input.value);
   let renderer = null;
   let frame = 0;
@@ -42,10 +47,44 @@ export function startLooks(doc = document, win = window) {
     for (const chip of chips) chip.setAttribute('aria-pressed', String(chip.dataset.look === id));
     note.textContent = `${next.name}: ${next.intent.charAt(0).toLowerCase()}${next.intent.slice(1)}`;
     if (renderer) request();
-    else still.src = `assets/presets/${id}.webp`;
+    else showStill();
+  }
+
+  function showStill() {
+    still.src = `assets/presets/${wall === 'black' ? 'black/' : ''}${look.id}.webp`;
+  }
+
+  async function picture(name) {
+    if (!sources[name]) {
+      const image = new win.Image();
+      image.src = DESKTOPS[name];
+      await image.decode();
+      sources[name] = image;
+    }
+    return sources[name];
+  }
+
+  async function chooseWall(name) {
+    if (!DESKTOPS[name]) return;
+    wall = name;
+    for (const button of walls) button.setAttribute('aria-pressed', String(button.dataset.wall === name));
+    if (!renderer) {
+      showStill();
+      return;
+    }
+    try {
+      const image = await picture(name);
+      if (wall !== name || !renderer) return;   // another choice came first
+      renderer.setSource(image);
+      request();
+    } catch {
+      goStill();
+      showStill();
+    }
   }
 
   for (const chip of chips) chip.addEventListener('click', () => choose(chip.dataset.look));
+  for (const button of walls) button.addEventListener('click', () => chooseWall(button.dataset.wall));
   input.addEventListener('input', () => {
     angle = Number(input.value);
     output.textContent = `${angle}°`;
@@ -54,10 +93,8 @@ export function startLooks(doc = document, win = window) {
 
   async function begin() {
     if (doc.documentElement.dataset.motion !== 'full') return;
-    const source = new win.Image();
-    source.src = 'assets/desktop.webp';
     try {
-      await source.decode();
+      const source = await picture(wall);
       renderer = new GlassRenderer(canvas);
       renderer.setSource(source);
     } catch {
@@ -83,7 +120,7 @@ export function startLooks(doc = document, win = window) {
   }, { rootMargin: '400px 0px' });
   near.observe(root);
 
-  return { choose, get live() { return renderer !== null; } };
+  return { choose, chooseWall, get live() { return renderer !== null; } };
 }
 
 /** Sections ease in once, as they come into view. */

@@ -122,7 +122,7 @@ Licenses and notices: [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
 ## Contributing
 
-Issues and pull requests are welcome: [CONTRIBUTING.md](CONTRIBUTING.md) gives the workflow and the promises every change keeps, and [SECURITY.md](SECURITY.md) how to report a vulnerability privately. The code is Swift: `Packages/PliKit` (the engine, the macOS adapters and the app's logic, all tested with `swift test`) and a thin app target that XcodeGen generates from `project.yml`.
+Questions, ideas and `.pli` looks to share go to [Discussions](https://github.com/ruben4reall/pli/discussions); bugs to [issues](https://github.com/ruben4reall/pli/issues). Pull requests are welcome: [CONTRIBUTING.md](CONTRIBUTING.md) gives the workflow and the promises every change keeps, and [SECURITY.md](SECURITY.md) how to report a vulnerability privately. The code is Swift: `Packages/PliKit` (the engine, the macOS adapters and the app's logic, all tested with `swift test`) and a thin app target that XcodeGen generates from `project.yml`.
 
 ## License
 

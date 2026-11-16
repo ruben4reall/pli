@@ -1,10 +1,12 @@
 import Foundation
 import Observation
 
-/// Pli's two windows. The menu bar panel is not one: it comes and goes with the menu bar symbol.
+/// Pli's windows. The menu bar panel is not one: it comes and goes with the menu bar symbol.
 public enum PliWindow: String, CaseIterable, Sendable {
     case settings
     case onboarding
+    /// The one-time question to an install that never said whether Pli opens at login.
+    case openAtLogin
 
     public var id: String { "pli-\(rawValue)" }
 }

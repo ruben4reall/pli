@@ -25,4 +25,11 @@ struct OnboardingSnapshots {
             OnboardingWindow(interface: noSensor)
         }
     }
+
+    @Test func openAtLoginQuestion() async throws {
+        let interface = SnapshotFixtures.interface()
+        try await Snapshotter.capture("open-at-login", size: Theme.Layout.openAtLoginSize, appearance: .darkAqua) {
+            OpenAtLoginWindow(interface: interface)
+        }
+    }
 }

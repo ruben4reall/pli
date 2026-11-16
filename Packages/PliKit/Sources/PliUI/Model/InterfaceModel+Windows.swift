@@ -45,10 +45,15 @@ extension InterfaceModel {
         if let regular = windows.didOpen(.onboarding) { relay.services?.setRegularApp(regular) }
     }
 
-    /// Closing the welcome window, finished or not, counts as seen: Show Welcome Again brings it back.
+    /// Closing the welcome window, finished or not, counts as seen: Show Welcome Again brings it back. The first time,
+    /// a window closed before Done (the close button, a relaunch for the permission) still keeps its checked box.
     public func onboardingDidClose() {
         if let regular = windows.didClose(.onboarding) { relay.services?.setRegularApp(regular) }
+        if !editor.settings.general.hasCompletedOnboarding, onboarding.openAtLogin, loginItem == .disabled {
+            setOpenAtLogin(true)
+        }
         editor.setQuietly(\.general.hasCompletedOnboarding, to: true)
+        editor.setQuietly(\.general.askedAboutOpenAtLogin, to: true)
     }
 
     // MARK: - Onboarding (spec 8.5)
@@ -69,6 +74,23 @@ extension InterfaceModel {
     public func onboardingFinish() {
         if onboarding.openAtLogin { setOpenAtLogin(true) }
         editor.setQuietly(\.general.hasCompletedOnboarding, to: true)
+        editor.setQuietly(\.general.askedAboutOpenAtLogin, to: true)
+    }
+
+    // MARK: - Open at Login, asked once
+
+    public func loginPromptDidOpen() {
+        if let regular = windows.didOpen(.openAtLogin) { relay.services?.setRegularApp(regular) }
+    }
+
+    public func loginPromptAccept() {
+        setOpenAtLogin(true)
+    }
+
+    /// Closed with or without Open at Login: either way the question is never asked again.
+    public func loginPromptDidClose() {
+        if let regular = windows.didClose(.openAtLogin) { relay.services?.setRegularApp(regular) }
+        editor.setQuietly(\.general.askedAboutOpenAtLogin, to: true)
     }
 
     public func showWelcome() {
@@ -120,6 +142,7 @@ extension InterfaceModel {
 
     public func setOpenAtLogin(_ enabled: Bool) {
         guard let services = relay.services else { return }
+        editor.setQuietly(\.general.askedAboutOpenAtLogin, to: true)
         do {
             try services.setOpenAtLogin(enabled)
             loginProblem = nil

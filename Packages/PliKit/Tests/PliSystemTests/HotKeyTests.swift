@@ -163,9 +163,27 @@ import Testing
 
 @MainActor @Suite struct LoginItemTests {
     @Test func statusesMapToWhatSettingsShows() {
-        #expect(LoginItem.status(from: .enabled) == .enabled)
-        #expect(LoginItem.status(from: .notRegistered) == .disabled)
-        #expect(LoginItem.status(from: .requiresApproval) == .needsApproval)
-        #expect(LoginItem.status(from: .notFound) == .unavailable)
+        let applications = URL(fileURLWithPath: "/Applications/Pli.app")
+        #expect(LoginItem.status(from: .enabled, bundle: applications) == .enabled)
+        #expect(LoginItem.status(from: .notRegistered, bundle: applications) == .disabled)
+        #expect(LoginItem.status(from: .requiresApproval, bundle: applications) == .needsApproval)
+    }
+
+    /// macOS 27 answers "not found" for an app that was never registered, even in /Applications, and registering it
+    /// works (measured on 27.2.1). Pli 1.0 read it as "impossible here" and dimmed the switch for good.
+    @Test func neverRegisteredInApplicationsCanStillBeTurnedOn() {
+        #expect(LoginItem.status(from: .notFound, bundle: URL(fileURLWithPath: "/Applications/Pli.app")) == .disabled)
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        #expect(LoginItem.status(from: .notFound, bundle: home.appendingPathComponent("Applications/Pli.app")) == .disabled)
+    }
+
+    @Test func outsideTheApplicationsFolderItStaysUnavailable() {
+        #expect(LoginItem.status(from: .notFound, bundle: URL(fileURLWithPath: "/Users/me/Downloads/Pli.app")) == .unavailable)
+        #expect(LoginItem.status(from: .notFound, bundle: URL(fileURLWithPath: "/Volumes/Pli/Pli.app")) == .unavailable)
+    }
+
+    @Test func theApplicationsFolderIsMatchedByWholeName() {
+        #expect(!LoginItem.isInApplicationsFolder(URL(fileURLWithPath: "/ApplicationsOld/Pli.app")))
+        #expect(LoginItem.isInApplicationsFolder(URL(fileURLWithPath: "/Applications/Utilities/Pli.app")))
     }
 }

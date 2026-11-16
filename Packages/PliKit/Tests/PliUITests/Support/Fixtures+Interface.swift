@@ -8,10 +8,12 @@ extension Fixtures {
     /// lid at 104°, rest at 110°, unless `live` says otherwise.
     @MainActor static func interface(settings: PliSettings = .default,
                                      live: LiveSnapshot = LiveSnapshot(lidAngle: 104, restAngle: 110),
+                                     openAtLogin: LoginItemState = .disabled,
                                      clock: @escaping @MainActor () -> Double = { 0 }) -> (InterfaceModel, FakeServices) {
         let interface = InterfaceModel(settings: settings, presetStore: store(), renderer: nil, interpreter: FakeInterpreter(),
                                        live: live, clock: clock)
         let services = FakeServices()
+        services.openAtLogin = openAtLogin
         interface.connect(services)
         return (interface, services)
     }

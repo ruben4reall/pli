@@ -45,6 +45,14 @@ public struct PliScenes: Scene {
         .windowResizability(.contentSize)
         .defaultLaunchBehavior(interface.showsOnboardingAtLaunch ? .presented : .suppressed)
         .restorationBehavior(.disabled)
+
+        Window(Strings.openAtLogin, id: PliWindow.openAtLogin.id) {
+            OpenAtLoginWindow(interface: interface)
+        }
+        .windowStyle(.hiddenTitleBar)
+        .windowResizability(.contentSize)
+        .defaultLaunchBehavior(interface.asksAboutOpenAtLoginAtLaunch ? .presented : .suppressed)
+        .restorationBehavior(.disabled)
     }
 }
 

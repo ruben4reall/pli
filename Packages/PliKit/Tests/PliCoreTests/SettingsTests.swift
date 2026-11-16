@@ -11,6 +11,7 @@ import Testing
         let g = GeneralSettings()
         #expect(g.enabled && g.showInMenuBar && g.rendering == .automatic)
         #expect(g.followReduceMotion && g.hideCursor && g.lighterInLowPower && !g.hasCompletedOnboarding)
+        #expect(!g.askedAboutOpenAtLogin)
         let s = PliSettings.default
         #expect(s.schemaVersion == 1 && s.activePresetID == "duo")
         #expect(s.glass == .duo && s.motion == .duo)
@@ -43,6 +44,17 @@ import Testing
         #expect(s.glass.frost == 0.2)
         #expect(s.motion == .duo)
         #expect(s.triggers == .default)
+    }
+
+    /// Pli 1.0 never asked about Open at Login after a welcome window closed early: its settings read as "not asked".
+    @Test func settingsFromPli10HaveNotBeenAskedAboutOpenAtLogin() throws {
+        let json = #"{"schemaVersion": 1, "general": {"enabled": true, "hasCompletedOnboarding": true}}"#
+        let s = try JSONDecoder().decode(PliSettings.self, from: Data(json.utf8))
+        #expect(s.general.hasCompletedOnboarding && !s.general.askedAboutOpenAtLogin)
+        var asked = s
+        asked.general.askedAboutOpenAtLogin = true
+        let back = try JSONDecoder().decode(PliSettings.self, from: JSONEncoder().encode(asked))
+        #expect(back.general.askedAboutOpenAtLogin)
     }
 
     private func freshDefaults() -> UserDefaults {

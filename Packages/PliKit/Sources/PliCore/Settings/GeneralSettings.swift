@@ -15,6 +15,9 @@ public struct GeneralSettings: Codable, Hashable, Sendable {
     public var hideCursor: Bool
     public var lighterInLowPower: Bool
     public var hasCompletedOnboarding: Bool
+    /// Open at Login was offered (the welcome window, the one-time question of 1.1, or the switch in General). Absent
+    /// from the settings of 1.0, so an earlier install is asked once.
+    public var askedAboutOpenAtLogin: Bool
 
     public init(
         enabled: Bool = true,
@@ -23,7 +26,8 @@ public struct GeneralSettings: Codable, Hashable, Sendable {
         followReduceMotion: Bool = true,
         hideCursor: Bool = true,
         lighterInLowPower: Bool = true,
-        hasCompletedOnboarding: Bool = false
+        hasCompletedOnboarding: Bool = false,
+        askedAboutOpenAtLogin: Bool = false
     ) {
         self.enabled = enabled
         self.showInMenuBar = showInMenuBar
@@ -32,10 +36,12 @@ public struct GeneralSettings: Codable, Hashable, Sendable {
         self.hideCursor = hideCursor
         self.lighterInLowPower = lighterInLowPower
         self.hasCompletedOnboarding = hasCompletedOnboarding
+        self.askedAboutOpenAtLogin = askedAboutOpenAtLogin
     }
 
     enum CodingKeys: String, CodingKey {
         case enabled, showInMenuBar, rendering, followReduceMotion, hideCursor, lighterInLowPower, hasCompletedOnboarding
+        case askedAboutOpenAtLogin
     }
 
     public init(from decoder: Decoder) throws {
@@ -48,7 +54,8 @@ public struct GeneralSettings: Codable, Hashable, Sendable {
             followReduceMotion: c.value(.followReduceMotion, default: d.followReduceMotion),
             hideCursor: c.value(.hideCursor, default: d.hideCursor),
             lighterInLowPower: c.value(.lighterInLowPower, default: d.lighterInLowPower),
-            hasCompletedOnboarding: c.value(.hasCompletedOnboarding, default: d.hasCompletedOnboarding)
+            hasCompletedOnboarding: c.value(.hasCompletedOnboarding, default: d.hasCompletedOnboarding),
+            askedAboutOpenAtLogin: c.value(.askedAboutOpenAtLogin, default: d.askedAboutOpenAtLogin)
         )
     }
 }

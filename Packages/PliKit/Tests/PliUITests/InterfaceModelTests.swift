@@ -139,12 +139,76 @@ import Testing
         #expect(interface.settings.general.hasCompletedOnboarding && !interface.showsOnboardingAtLaunch)
     }
 
-    @Test func closingTheWelcomeWindowCountsAsSeen() {
+    /// Closed early (the close button, a relaunch for the permission), the welcome window still keeps its checked box:
+    /// a Pli that is not running cannot fold, and 1.0 left people without it after their next restart.
+    @Test func closingTheWelcomeWindowCountsAsSeenAndKeepsOpenAtLogin() {
         let (interface, services) = Fixtures.interface()
         interface.onboardingDidOpen()
         interface.onboardingDidClose()
         #expect(interface.settings.general.hasCompletedOnboarding && services.regularApp == [true, false])
+        #expect(services.openAtLogin == .enabled && interface.loginItem == .enabled)
+        #expect(interface.settings.general.askedAboutOpenAtLogin && !interface.asksAboutOpenAtLoginAtLaunch)
+    }
+
+    @Test func anUncheckedBoxIsHonoredWhenTheWelcomeWindowCloses() {
+        let (interface, services) = Fixtures.interface()
+        interface.onboardingDidOpen()
+        interface.onboarding.openAtLogin = false
+        interface.onboardingDidClose()
+        #expect(services.openAtLogin == .disabled && interface.settings.general.askedAboutOpenAtLogin)
+    }
+
+    /// Show Welcome Again is a tour: closing it never turns Open at Login back on behind the person's back.
+    @Test func closingShowWelcomeAgainLeavesOpenAtLoginAlone() {
+        var settings = PliSettings.default
+        settings.general.hasCompletedOnboarding = true
+        settings.general.askedAboutOpenAtLogin = true
+        let (interface, services) = Fixtures.interface(settings: settings)
+        interface.showWelcome()
+        interface.onboardingDidOpen()
+        interface.onboardingDidClose()
         #expect(services.openAtLogin == .disabled)
+    }
+
+    /// Someone who closed the welcome window of 1.0 is asked once, at the first launch of the update.
+    @Test func anEarlierInstallIsAskedOnceAboutOpenAtLogin() {
+        var settings = PliSettings.default
+        settings.general.hasCompletedOnboarding = true
+        let (interface, services) = Fixtures.interface(settings: settings)
+        #expect(interface.asksAboutOpenAtLoginAtLaunch && !interface.showsOnboardingAtLaunch)
+        interface.loginPromptDidOpen()
+        #expect(services.regularApp == [true])
+        interface.loginPromptAccept()
+        interface.loginPromptDidClose()
+        #expect(services.openAtLogin == .enabled && interface.loginItem == .enabled && services.regularApp == [true, false])
+        #expect(interface.settings.general.askedAboutOpenAtLogin && !interface.asksAboutOpenAtLoginAtLaunch)
+    }
+
+    @Test func notNowIsRemembered() {
+        var settings = PliSettings.default
+        settings.general.hasCompletedOnboarding = true
+        let (interface, services) = Fixtures.interface(settings: settings)
+        interface.loginPromptDidOpen()
+        interface.loginPromptDidClose()
+        #expect(services.openAtLogin == .disabled && interface.settings.general.askedAboutOpenAtLogin)
+        #expect(!interface.asksAboutOpenAtLoginAtLaunch)
+    }
+
+    @Test func noQuestionWhenPliAlreadyOpensAtLoginOrHasNotBeenSetUp() {
+        var settings = PliSettings.default
+        settings.general.hasCompletedOnboarding = true
+        #expect(!Fixtures.interface(settings: settings, openAtLogin: .enabled).0.asksAboutOpenAtLoginAtLaunch)
+        #expect(!Fixtures.interface(settings: settings, openAtLogin: .needsApproval).0.asksAboutOpenAtLoginAtLaunch)
+        #expect(!Fixtures.interface().0.asksAboutOpenAtLoginAtLaunch)
+    }
+
+    /// The switch in General is an answer too.
+    @Test func theGeneralSwitchCountsAsAnAnswer() {
+        var settings = PliSettings.default
+        settings.general.hasCompletedOnboarding = true
+        let (interface, services) = Fixtures.interface(settings: settings)
+        interface.setOpenAtLogin(false)
+        #expect(interface.settings.general.askedAboutOpenAtLogin && services.openAtLogin == .disabled)
     }
 
     @Test func aRefusedLoginItemSaysSo() {

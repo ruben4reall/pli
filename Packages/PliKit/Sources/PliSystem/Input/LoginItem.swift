@@ -1,3 +1,4 @@
+import Foundation
 import ServiceManagement
 
 public enum LoginItemStatus: Sendable, Equatable {
@@ -5,6 +6,7 @@ public enum LoginItemStatus: Sendable, Equatable {
     case disabled
     /// Registered, waiting for the person to allow it in System Settings, Login Items.
     case needsApproval
+    /// This copy runs outside an Applications folder (a disk image, Downloads).
     case unavailable
 }
 
@@ -18,12 +20,14 @@ public protocol LoginItemControlling: AnyObject {
 @MainActor
 public final class LoginItem: LoginItemControlling {
     private let service: SMAppService
+    private let bundle: URL
 
-    public init(service: SMAppService = .mainApp) {
+    public init(service: SMAppService = .mainApp, bundle: URL = Bundle.main.bundleURL) {
         self.service = service
+        self.bundle = bundle
     }
 
-    public var status: LoginItemStatus { Self.status(from: service.status) }
+    public var status: LoginItemStatus { Self.status(from: service.status, bundle: bundle) }
 
     public func setEnabled(_ enabled: Bool) throws {
         if enabled {
@@ -33,13 +37,22 @@ public final class LoginItem: LoginItemControlling {
         }
     }
 
-    static func status(from status: SMAppService.Status) -> LoginItemStatus {
+    /// `.notFound` is also what macOS 27 answers for an app that was never registered, wherever it is, and registering
+    /// it then works. So only a copy outside an Applications folder is told it cannot open at login.
+    static func status(from status: SMAppService.Status, bundle: URL) -> LoginItemStatus {
         switch status {
         case .enabled: .enabled
         case .notRegistered: .disabled
         case .requiresApproval: .needsApproval
-        case .notFound: .unavailable
+        case .notFound: isInApplicationsFolder(bundle) ? .disabled : .unavailable
         @unknown default: .unavailable
         }
+    }
+
+    /// /Applications, ~/Applications, or a folder inside either.
+    static func isInApplicationsFolder(_ bundle: URL) -> Bool {
+        let path = bundle.standardizedFileURL.path
+        let home = FileManager.default.homeDirectoryForCurrentUser.standardizedFileURL.path
+        return ["/Applications/", home + "/Applications/"].contains { path.hasPrefix($0) }
     }
 }

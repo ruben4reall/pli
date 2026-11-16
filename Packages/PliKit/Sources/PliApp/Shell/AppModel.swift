@@ -99,6 +99,7 @@ public final class AppModel: InterfaceServices {
         if options.debugMenu { debugItem = DebugStatusItem(menu: DebugMenu(model: self, simulator: simulator)) }
         publishLive()
         Log.runtime.info("Pli started, simulator \(self.options.simulateLid)")
+        Log.runtime.info("open at login: \(String(describing: self.loginItem.status), privacy: .public), asked: \(self.settings.general.askedAboutOpenAtLogin)")
     }
 
     public func stop() {

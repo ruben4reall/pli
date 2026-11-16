@@ -326,6 +326,12 @@ public enum Strings {
     public static let openPliAtLogin = String(localized: "Open Pli at login", bundle: .module)
     public static let done = String(localized: "Done", bundle: .module)
 
+    // The one-time Open at Login question (1.1)
+    public static let keepTheFoldTitle = String(localized: "Keep the fold after a restart", bundle: .module)
+    public static let keepTheFoldWhy = String(localized: "Pli can only fold your screen while it is running. Open it at login, and the fold is there every time you start your Mac.", bundle: .module)
+    public static let keepTheFoldLater = String(localized: "You can change this anytime in Settings, General.", bundle: .module)
+    public static let notNow = String(localized: "Not Now", bundle: .module)
+
     public static func stepOf(_ step: Int, _ count: Int) -> String {
         String(format: String(localized: "Step %lld of %lld", bundle: .module), step, count)
     }

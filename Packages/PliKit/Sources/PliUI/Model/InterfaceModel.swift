@@ -101,6 +101,13 @@ public final class InterfaceModel {
     public var status: PanelStatus { PanelStatus.make(settings: editor.settings, live: live.snapshot) }
     public var showsOnboardingAtLaunch: Bool { !editor.settings.general.hasCompletedOnboarding }
 
+    /// A Pli that is not running cannot fold. An install that went through the welcome window without answering (1.0
+    /// only registered on Done) is asked once whether Pli opens at login.
+    public var asksAboutOpenAtLoginAtLaunch: Bool {
+        let general = editor.settings.general
+        return general.hasCompletedOnboarding && !general.askedAboutOpenAtLogin && loginItem == .disabled
+    }
+
     public var basicModeReason: BasicModeReason? {
         if editor.settings.general.rendering == .alwaysBasic { return .alwaysBasic }
         return live.screenCaptureAllowed ? nil : .permissionMissing

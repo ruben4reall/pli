@@ -121,6 +121,7 @@ public enum Theme {
         public static let sidebarMaximum: CGFloat = 260
         public static let panelWidth: CGFloat = 320
         public static let onboardingSize = CGSize(width: 600, height: 560)
+        public static let openAtLoginSize = CGSize(width: 460, height: 284)
         public static let valueLabelWidth: CGFloat = 64
         public static let presetTileWidth: CGFloat = 132
     }

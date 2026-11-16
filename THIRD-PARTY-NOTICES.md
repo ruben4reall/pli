@@ -4,7 +4,7 @@ Pli is released under the MIT License (see LICENSE). This file lists the third-p
 it builds on. It travels with every copy of Pli: in the repository, and inside the app at
 `Pli.app/Contents/Resources/THIRD-PARTY-NOTICES.md`.
 
-## Sparkle 2.10.0
+## Sparkle 2.10.1
 
 The software update framework, <https://sparkle-project.org>, shipped inside the app as
 `Pli.app/Contents/Frameworks/Sparkle.framework`. Its license, with the licenses of the code it includes:

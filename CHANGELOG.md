@@ -2,6 +2,23 @@
 
 Every release of Pli. Versions follow semantic versioning; each one is signed, notarized, and offered to installed copies through Sparkle.
 
+## 1.1.0 (2026-11-16)
+
+Pli stays ready after a restart.
+
+### Fixed
+
+- **Open at Login works again.** On macOS 27, the switch in Settings, General could stay dimmed with "Move Pli to the Applications folder" even with Pli in Applications, and closing the welcome window any other way than Done never set Pli to open at login. After a restart the fold was gone until you opened Pli by hand. Both are fixed.
+
+### New
+
+- **Asked once.** If your Pli does not open at login yet, a small window asks at the first launch of 1.1: *Open at Login* or *Not Now*. Either way, Settings, General has the switch.
+
+### Updated
+
+- **Checked on macOS 27.2.** The lid angle sensor reads, the capture works, and every macOS function Pli relies on is still there.
+- **Sparkle 2.10.1**, the update framework, with its latest fixes.
+
 ## 1.0.0 (2026-09-27)
 
 Pli 1.0: ready for everyone. The iPhone Duo fold on your MacBook, driven by the real angle of the lid, free and open source.

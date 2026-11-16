@@ -75,8 +75,8 @@ Turn off *Open at Login* in Settings, General, quit Pli from the menu bar panel,
 
 ## Compatible Macs
 
-- macOS 26 or later.
-- **The fold follows the lid** on MacBooks with a lid angle sensor, which arrived with the 16-inch MacBook Pro of 2019. Tested on a 14-inch MacBook Pro with M3 Pro; expected on the other Apple silicon MacBook Pro and on the MacBook Air from M2. Other projects report that it cannot be read on some M1 and M2 models (the M1 MacBook Air and the 13-inch MacBook Pro with Touch Bar among them). Pli checks at launch: Settings, General, This Mac says "Folds with your lid" or "Shortcuts only".
+- macOS 26 or later. Checked on macOS 26.5 and 27.2.
+- **The fold follows the lid** on MacBooks with a lid angle sensor, which arrived with the 16-inch MacBook Pro of 2019. Tested on a 14-inch MacBook Pro with M3 Pro; expected on the other Apple silicon MacBook Pro and on the MacBook Air from M2, M5 models included (Apple lists a lid angle sensor in their repair guides). Other projects report that it cannot be read on some M1 and M2 models (the M1 MacBook Air and the 13-inch MacBook Pro with Touch Bar among them), and the MacBook Neo is reported to have none. Pli checks at launch: Settings, General, This Mac says "Folds with your lid" or "Shortcuts only".
 - **On every Mac**, desktop Macs included: the demo (⌃⌥⌘P), the animated lock (⌃⌥⌘L) and the unfold after you unlock play on the built-in display, or on the main display of a Mac without one.
 - Pli is a universal app, tested on Apple silicon. It builds for Intel Macs but has not been tested on one.
 - External displays are never touched. With your MacBook closed on an external display, Pli pauses.

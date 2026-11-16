@@ -9,11 +9,11 @@ packages:
     path: Packages/PliKit
   Sparkle:
     url: https://github.com/sparkle-project/Sparkle
-    exactVersion: 2.10.0
+    exactVersion: 2.10.1
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    MARKETING_VERSION: "1.0.0"
+    MARKETING_VERSION: "1.1.0"
     CURRENT_PROJECT_VERSION: $(MARKETING_VERSION)
     ENABLE_HARDENED_RUNTIME: YES
     CODE_SIGN_IDENTITY: "-"
